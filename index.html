@@ -1,0 +1,925 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Great Veggie Survey</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Popup -->
+    <div id="customPopup" class="popup-container">
+        <div class="popup-content">
+            <span class="popup-close" id="popupClose">&times;</span>
+            <p id="popupMessage"></p>
+        </div>
+    </div>
+
+<header class="interactive-header">
+    <div class="floating-veggies">
+        <div class="floating-veggie" style="--delay: 0s;">🥕</div>
+        <div class="floating-veggie" style="--delay: 1s;">🍅</div>
+        <div class="floating-veggie" style="--delay: 2s;">🥒</div>
+        <div class="floating-veggie" style="--delay: 3s;">🌽</div>
+        <div class="floating-veggie" style="--delay: 4s;">🥦</div>
+    </div>
+    <div class="header-content">
+        <h1 class="title">The Great Veggie Survey</h1>
+        <p class="subtitle">Join thousands in discovering vegetable preferences worldwide!</p>
+    </div>
+</header>
+
+    <main>
+        <div class="progress-bar">
+            <div class="progress" id="progress"></div>
+        </div>
+
+        <form id="surveyForm">
+            <!-- Page 0 - Language Selection -->
+            <div class="page active" id="page0">
+                <fieldset id="language-selection">
+                    <legend>Choose Your Preferred Language</legend>
+                    <p class="language-subtitle">Select the language you'd like to take the survey in</p>
+                    
+                    <div class="language-grid">
+                        <label class="language-option card-option">
+                            <input type="radio" name="preferredLanguage" value="english" required>
+                            <div class="language-card">
+                                <div class="language-flag">🇬🇧</div>
+                                <div class="language-name">English</div>
+                                <div class="language-desc">Continue in English</div>
+                            </div>
+                        </label>
+                        
+                        <label class="language-option card-option">
+                            <input type="radio" name="preferredLanguage" value="sinhala" required>
+                            <div class="language-card">
+                                <div class="language-flag">🇱🇰</div>
+                                <div class="language-name">සිංහල</div>
+                                <div class="language-desc">සිංහල භාෂාවෙන් ඉදිරියට</div>
+                            </div>
+                        </label>
+                        
+                        <label class="language-option card-option">
+                            <input type="radio" name="preferredLanguage" value="tamil" required>
+                            <div class="language-card">
+                                <div class="language-flag">🇮🇳</div>
+                                <div class="language-name">தமிழ்</div>
+                                <div class="language-desc">தமிழில் தொடரவும்</div>
+                            </div>
+                        </label>
+                    </div>
+                    
+                    <div class="welcome-message">
+                        <div class="welcome-icon">🌱</div>
+                        <h3>Welcome to The Great Veggie Survey!</h3>
+                        <p>Help us understand vegetable preferences and buying habits around the world. Your input will contribute to better food systems and availability.</p>
+                    </div>
+                </fieldset>
+
+                <div class="navigation-buttons">
+                    <button type="button" id="nextButton0">Start Survey</button>
+                </div>
+            </div>
+
+            <!-- Page 1 (Previously Page 0) -->
+            <div class="page" id="page1">
+                <fieldset id="age-group">
+                    <legend>What's your age group?</legend>
+                    <div class="selection-grid">
+                        <label class="selection-option card-option">
+                            <input type="radio" name="ageGroup" value="under-25" required>
+                            <div class="option-card">
+                                <span>Under 25</span>
+                            </div>
+                        </label>
+                        <label class="selection-option card-option">
+                            <input type="radio" name="ageGroup" value="25-35" required>
+                            <div class="option-card">
+                                <span>25 - 35</span>
+                            </div>
+                        </label>
+                        <label class="selection-option card-option">
+                            <input type="radio" name="ageGroup" value="36-45" required>
+                            <div class="option-card">
+                                <span>36 - 45</span>
+                            </div>
+                        </label>
+                        <label class="selection-option card-option">
+                            <input type="radio" name="ageGroup" value="46-55" required>
+                            <div class="option-card">
+                                <span>46 - 55</span>
+                            </div>
+                        </label>
+                        <label class="selection-option card-option">
+                            <input type="radio" name="ageGroup" value="55-plus" required>
+                            <div class="option-card">
+                                <span>55+</span>
+                            </div>
+                        </label>
+                    </div>
+                </fieldset>
+
+                <fieldset id="role-selection">
+                    <legend>Household Size</legend>
+                    <div class="selection-grid">
+                        <label class="selection-option card-option">
+                            <input type="radio" name="membersinfamily" value="1-2" required>
+                            <div class="option-card">
+                                <img src="people/1.jpg" alt="1-2 Members Icon" class="roleImg">
+                                <span>1-2 persons</span>
+                            </div>
+                        </label>
+                        <label class="selection-option card-option">
+                            <input type="radio" name="membersinfamily" value="3-4" required>
+                            <div class="option-card">
+                                <img src="people/4.jpg" alt="3-4 Members Icon" class="roleImg">
+                                <span>3-4 persons</span>
+                            </div>
+                        </label>
+                        <label class="selection-option card-option">
+                            <input type="radio" name="membersinfamily" value="5-6" required>
+                            <div class="option-card">
+                                <img src="people/5.jpg" alt="5-6 Members Icon" class="roleImg">
+                                <span>5-6 persons</span>
+                            </div>
+                        </label>
+                        <label class="selection-option card-option">
+                            <input type="radio" name="membersinfamily" value="6+" required>
+                            <div class="option-card">
+                                <img src="people/6+.jpg" alt="6+ Members Icon" class="roleImg">
+                                <span>6+ persons</span>
+                            </div>
+                        </label>
+                    </div>
+                </fieldset>
+
+                <fieldset id="income">
+                    <legend>Approximate Monthly Household Income (LKR)</legend>
+                    <div class="selection-grid">
+                        <label class="selection-option card-option">
+                            <input type="radio" name="income" value="less than 50000" required>
+                            <div class="option-card">
+                                <span>Less than 50,000</span>
+                            </div>
+                        </label>
+                        <label class="selection-option card-option">
+                            <input type="radio" name="income" value="50,000 - 100,000" required>
+                            <div class="option-card">
+                                <span>50,000 - 100,000</span>
+                            </div>
+                        </label>
+                        <label class="selection-option card-option">
+                            <input type="radio" name="income" value="100,000 - 150,000" required>
+                            <div class="option-card">
+                                <span>100,000 - 150,000</span>
+                            </div>
+                        </label>
+                        <label class="selection-option card-option">
+                            <input type="radio" name="income" value="150,000 - 200,000" required>
+                            <div class="option-card">
+                                <span>150,000 - 200,000</span>
+                            </div>
+                        </label>
+                        <label class="selection-option card-option">
+                            <input type="radio" name="income" value="200,000 - 250,000" required>
+                            <div class="option-card">
+                                <span>200,000 - 250,000</span>
+                            </div>
+                        </label>
+                    </div>
+                </fieldset>
+
+                <!-- Enhanced Vegetable Selection - No Categories -->
+                <fieldset id="veggie-selection">
+                    <legend>Favorite Vegetables (Choose up to 5)</legend>
+                    
+                    <div class="selection-counter">
+                        <span class="counter-text">Selected: </span>
+                        <span class="counter-number" id="selectedCount">0</span>
+                        <span class="counter-text"> / 5</span>
+                    </div>
+                    
+                    <div class="progress-indicator">
+                        <div class="progress-fill" id="selectionProgress" style="width: 0%"></div>
+                    </div>
+
+                    <div class="veggie-grid">
+                        <div class="veggie-card" data-veggie="carrot">
+                            <img src="Vegetables/carrots.jpg" alt="Carrot" class="veggie-image">
+                            <div class="veggie-name">Carrot</div>
+                            <div class="veggie-price-tag">Common • Affordable</div>
+                        </div>
+                        <div class="veggie-card" data-veggie="beetroot">
+                            <img src="Vegetables/beetroot.jpg" alt="Beetroot" class="veggie-image">
+                            <div class="veggie-name">Beetroot</div>
+                            <div class="veggie-price-tag">Seasonal • Nutritious</div>
+                        </div>
+                        <div class="veggie-card" data-veggie="red-onion">
+                            <img src="Vegetables/onion.jpg" alt="Red Onion" class="veggie-image">
+                            <div class="veggie-name">Red Onion</div>
+                            <div class="veggie-price-tag">Essential • Stable</div>
+                        </div>
+                        <div class="veggie-card" data-veggie="cabbage">
+                            <img src="Vegetables/cabbage.jpg" alt="Cabbage" class="veggie-image">
+                            <div class="veggie-name">Cabbage</div>
+                            <div class="veggie-price-tag">Versatile • Budget</div>
+                        </div>
+                        <div class="veggie-card" data-veggie="leeks">
+                            <img src="Vegetables/leeks.jpg" alt="Leeks" class="veggie-image">
+                            <div class="veggie-name">Leeks</div>
+                            <div class="veggie-price-tag">Flavorful • Seasonal</div>
+                        </div>
+                        <div class="veggie-card" data-veggie="tomato">
+                            <img src="Town/Tomato.jpg" alt="Tomato" class="veggie-image">
+                            <div class="veggie-name">Tomato</div>
+                            <div class="veggie-price-tag">Essential • Variable</div>
+                        </div>
+                        <div class="veggie-card" data-veggie="brinjal">
+                            <img src="Vegetables/brinjal.jpg" alt="Brinjal" class="veggie-image">
+                            <div class="veggie-name">Brinjal</div>
+                            <div class="veggie-price-tag">Common • Affordable</div>
+                        </div>
+                        <div class="veggie-card" data-veggie="cucumber">
+                            <img src="Vegetables/cucumber.jpg" alt="Cucumber" class="veggie-image">
+                            <div class="veggie-name">Cucumber</div>
+                            <div class="veggie-price-tag">Refreshing • Stable</div>
+                        </div>
+                        <div class="veggie-card" data-veggie="pumpkin">
+                            <img src="Vegetables/pumpkin.jpg" alt="Pumpkin" class="veggie-image">
+                            <div class="veggie-name">Pumpkin</div>
+                            <div class="veggie-price-tag">Nutritious • Seasonal</div>
+                        </div>
+                        <div class="veggie-card" data-veggie="bitter-gourd">
+                            <img src="Town/Bittergourd.jpg" alt="Bitter Gourd" class="veggie-image">
+                            <div class="veggie-name">Bitter Gourd</div>
+                            <div class="veggie-price-tag">Healthy • Acquired Taste</div>
+                        </div>
+                        <div class="veggie-card" data-veggie="okra">
+                            <img src="Vegetables/okra.jpg" alt="Okra" class="veggie-image">
+                            <div class="veggie-name">Okra</div>
+                            <div class="veggie-price-tag">Popular • Seasonal</div>
+                        </div>
+                        <div class="veggie-card" data-veggie="beans">
+                            <img src="Vegetables/beans.jpg" alt="Beans" class="veggie-image">
+                            <div class="veggie-name">Beans</div>
+                            <div class="veggie-price-tag">Common • Year-round</div>
+                        </div>
+                        <div class="veggie-card" data-veggie="long-beans">
+                            <img src="Town/Long Beens.jpg" alt="Long Beans" class="veggie-image">
+                            <div class="veggie-name">Long Beans</div>
+                            <div class="veggie-price-tag">Traditional • Local</div>
+                        </div>
+                        <div class="veggie-card" data-veggie="green-chili">
+                            <img src="Town/Cilllies.jpg" alt="Green Chili" class="veggie-image">
+                            <div class="veggie-name">Green Chili</div>
+                            <div class="veggie-price-tag">Essential • Spicy</div>
+                        </div>
+                    </div>
+
+                    <!-- Hidden checkboxes for form submission -->
+                    <div style="display: none;">
+                        <input type="checkbox" name="favoriteVeggie" value="carrot">
+                        <input type="checkbox" name="favoriteVeggie" value="beetroot">
+                        <input type="checkbox" name="favoriteVeggie" value="red-onion">
+                        <input type="checkbox" name="favoriteVeggie" value="cabbage">
+                        <input type="checkbox" name="favoriteVeggie" value="leeks">
+                        <input type="checkbox" name="favoriteVeggie" value="tomato">
+                        <input type="checkbox" name="favoriteVeggie" value="brinjal">
+                        <input type="checkbox" name="favoriteVeggie" value="cucumber">
+                        <input type="checkbox" name="favoriteVeggie" value="pumpkin">
+                        <input type="checkbox" name="favoriteVeggie" value="bitter-gourd">
+                        <input type="checkbox" name="favoriteVeggie" value="okra">
+                        <input type="checkbox" name="favoriteVeggie" value="beans">
+                        <input type="checkbox" name="favoriteVeggie" value="long-beans">
+                        <input type="checkbox" name="favoriteVeggie" value="green-chili">
+                    </div>
+
+                    <p id="veggie-limit-message" class="error-message">You can select a maximum of 5 vegetables.</p>
+                </fieldset>
+
+                <div class="navigation-buttons">
+                    <button type="button" id="prevButton1">Previous</button>
+                    <button type="button" id="nextButton1">Next</button>
+                </div>
+            </div>
+
+            <!-- Page 2 (Previously Page 1) -->
+            <div class="page" id="page2">
+                <fieldset id="buying-location">
+                    <legend>Where do you MOST FREQUENTLY buy your fresh vegetables?</legend>
+                    <div class="selection-grid">
+                        <label class="selection-option card-option">
+                            <input type="radio" name="buyingLocation" value="vegetable-market" required>
+                            <div class="option-card">
+                                <img src="markets\dedi_markit.jpg" alt="Dedicated Vegetable Market" class="areaImg">
+                                <span>Dedicated Vegetable Market</span>
+                            </div>
+                        </label>
+                        <label class="selection-option card-option">
+                            <input type="radio" name="buyingLocation" value="local-fair" required>
+                            <div class="option-card">
+                                <img src="markets\local market.jpeg" alt="Local Fair / Sunday Market" class="areaImg">
+                                <span>Local Fair / Sunday Market</span>
+                            </div>
+                        </label>
+                        <label class="selection-option card-option">
+                            <input type="radio" name="buyingLocation" value="supermarket" required>
+                            <div class="option-card">
+                                <img src="markets\super market.jpeg" alt="Supermarket" class="areaImg">
+                                <span>Supermarket</span>
+                            </div>
+                        </label>
+                        <label class="selection-option card-option">
+                            <input type="radio" name="buyingLocation" value="grocery-store" required>
+                            <div class="option-card">
+                                <img src="markets\shop.jpg" alt="Local Grocery Store" class="areaImg">
+                                <span>Local Grocery Store</span>
+                            </div>
+                        </label>
+                        <label class="selection-option card-option">
+                            <input type="radio" name="buyingLocation" value="farmer" required>
+                            <div class="option-card">
+                                <img src="markets\Farmersproduce.jpg" alt="Directly from Farmer" class="areaImg">
+                                <span>Directly from Farmer</span>
+                            </div>
+                        </label>
+                        <label class="selection-option card-option">
+                            <input type="radio" name="buyingLocation" value="online" required>
+                            <div class="option-card">
+                                <img src="markets\online.webp" alt="Online Delivery Services" class="areaImg">
+                                <span>Online Delivery Services</span>
+                            </div>
+                        </label>
+                    </div>
+                </fieldset>
+
+                <fieldset id="purchase-frequency">
+                    <legend>How often does your household purchase fresh vegetables?</legend>
+                    <div class="selection-grid">
+                        <label class="selection-option card-option">
+                            <input type="radio" name="purchaseFrequency" value="daily" required>
+                            <div class="option-card">
+                                <span>Daily</span>
+                            </div>
+                        </label>
+                        <label class="selection-option card-option">
+                            <input type="radio" name="purchaseFrequency" value="2-3-times" required>
+                            <div class="option-card">
+                                <span>2-3 times a week</span>
+                            </div>
+                        </label>
+                        <label class="selection-option card-option">
+                            <input type="radio" name="purchaseFrequency" value="weekly" required>
+                            <div class="option-card">
+                                <span>Weekly</span>
+                            </div>
+                        </label>
+                        <label class="selection-option card-option">
+                            <input type="radio" name="purchaseFrequency" value="less-than-weekly" required>
+                            <div class="option-card">
+                                <span>Less than once a week</span>
+                            </div>
+                        </label>
+                    </div>
+                </fieldset>
+
+                <fieldset id="spending-amount">
+                    <legend>On average, how much does your household spend on vegetables per week (LKR)?</legend>
+                    <div class="selection-grid">
+                        <label class="selection-option card-option">
+                            <input type="radio" name="spendingAmount" value="less-than-1000" required>
+                            <div class="option-card">
+                                <span>Less than 1,000</span>
+                            </div>
+                        </label>
+                        <label class="selection-option card-option">
+                            <input type="radio" name="spendingAmount" value="1001-2500" required>
+                            <div class="option-card">
+                                <span>1,000 - 2,500</span>
+                            </div>
+                        </label>
+                        <label class="selection-option card-option">
+                            <input type="radio" name="spendingAmount" value="2501-5000" required>
+                            <div class="option-card">
+                                <span>2,500 - 5,000</span>
+                            </div>
+                        </label>
+                        <label class="selection-option card-option">
+                            <input type="radio" name="spendingAmount" value="more-than-5000" required>
+                            <div class="option-card">
+                                <span>More than 5,000</span>
+                            </div>
+                        </label>
+                    </div>
+                </fieldset>
+
+                <div class="navigation-buttons">
+                    <button type="button" id="prevButton2">Previous</button>
+                    <button type="button" id="nextButton2">Next</button>
+                </div>
+            </div>
+
+            <!-- Page 3 (Previously Page 2) -->
+            <div class="page" id="page3">
+                <fieldset id="core-problem">
+                    <legend>Section 1</legend>
+                    
+                    <div class="question-section">
+                        <h3 id="price-effect-question">1. How often do unexpected vegetable price changes affect your budget?</h3>
+                        <div class="selection-grid">
+                            <label class="selection-option card-option">
+                                <input type="radio" name="priceEffect" value="always" required>
+                                <div class="option-card">
+                                    <span>Always</span>
+                                </div>
+                            </label>
+                            <label class="selection-option card-option">
+                                <input type="radio" name="priceEffect" value="frequently" required>
+                                <div class="option-card">
+                                    <span>Frequently</span>
+                                </div>
+                            </label>
+                            <label class="selection-option card-option">
+                                <input type="radio" name="priceEffect" value="sometimes" required>
+                                <div class="option-card">
+                                    <span>Sometimes</span>
+                                </div>
+                            </label>
+                            <label class="selection-option card-option">
+                                <input type="radio" name="priceEffect" value="rarely" required>
+                                <div class="option-card">
+                                    <span>Rarely</span>
+                                </div>
+                            </label>
+                            <label class="selection-option card-option">
+                                <input type="radio" name="priceEffect" value="never" required>
+                                <div class="option-card">
+                                    <span>Never</span>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="question-section">
+                        <h3 id="price-response-question">2. When vegetable prices unexpectedly increase, how do you typically respond? (Choose all that apply)</h3>
+                        <div class="selection-grid checkbox-grid">
+                            <label class="selection-option card-option checkbox-option">
+                                <input type="checkbox" name="priceResponse" value="buy-smaller">
+                                <div class="option-card">
+                                    <span>Buy smaller quantities</span>
+                                </div>
+                            </label>
+                            <label class="selection-option card-option checkbox-option">
+                                <input type="checkbox" name="priceResponse" value="switch-cheaper">
+                                <div class="option-card">
+                                    <span>Switch to cheaper vegetables</span>
+                                </div>
+                            </label>
+                            <label class="selection-option card-option checkbox-option">
+                                <input type="checkbox" name="priceResponse" value="reduce-consumption">
+                                <div class="option-card">
+                                    <span>Reduce consumption</span>
+                                </div>
+                            </label>
+                            <label class="selection-option card-option checkbox-option">
+                                <input type="checkbox" name="priceResponse" value="no-change">
+                                <div class="option-card">
+                                    <span>No change</span>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="question-section">
+                        <h3 id="budget-difficulty-question">3. Does the fluctuation in vegetable prices make it difficult for you to stay within your monthly budget?</h3>
+                        <div class="selection-grid">
+                            <label class="selection-option card-option">
+                                <input type="radio" name="budgetDifficulty" value="yes-always" required>
+                                <div class="option-card">
+                                    <span>Yes, always</span>
+                                </div>
+                            </label>
+                            <label class="selection-option card-option">
+                                <input type="radio" name="budgetDifficulty" value="yes-sometimes" required>
+                                <div class="option-card">
+                                    <span>Yes, sometimes</span>
+                                </div>
+                            </label>
+                            <label class="selection-option card-option">
+                                <input type="radio" name="budgetDifficulty" value="no-manage" required>
+                                <div class="option-card">
+                                    <span>No, I can manage</span>
+                                </div>
+                            </label>
+                            <label class="selection-option card-option">
+                                <input type="radio" name="budgetDifficulty" value="no-never" required>
+                                <div class="option-card">
+                                    <span>No, never</span>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="question-section">
+                        <h3 id="purchase-adjustment-question">4. How do you manage or adjust your vegetable purchases when prices rise unexpectedly?</h3>
+                        <div class="selection-grid">
+                            <label class="selection-option card-option">
+                                <input type="radio" name="purchaseAdjustment" value="cut-back" required>
+                                <div class="option-card">
+                                    <span>Cut back on vegetable purchases</span>
+                                </div>
+                            </label>
+                            <label class="selection-option card-option">
+                                <input type="radio" name="purchaseAdjustment" value="spend-less-other" required>
+                                <div class="option-card">
+                                    <span>Spend less on other groceries to balance</span>
+                                </div>
+                            </label>
+                            <label class="selection-option card-option">
+                                <input type="radio" name="purchaseAdjustment" value="cheaper-alternatives" required>
+                                <div class="option-card">
+                                    <span>Use cheaper alternatives</span>
+                                </div>
+                            </label>
+                            <label class="selection-option card-option">
+                                <input type="radio" name="purchaseAdjustment" value="other" required>
+                                <div class="option-card">
+                                    <span>Other</span>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+                </fieldset>
+
+                <div class="navigation-buttons">
+                    <button type="button" id="prevButton3">Previous</button>
+                    <button type="button" id="nextButton3">Next</button>
+                </div>
+            </div>
+
+            <!-- Page 4 (Previously Page 3) -->
+            <div class="page" id="page4">
+                <fieldset id="solution-interest">
+                    <legend>Section 2</legend>
+                    
+                    <div class="question-section">
+                        <h3 id="price-forecast-useful-question">5. Would you find it useful to have a mobile app or platform that forecasts vegetable prices for the next 7 days?</h3>
+                        <div class="selection-grid">
+                            <label class="selection-option card-option">
+                                <input type="radio" name="priceForecastUseful" value="very-useful" required>
+                                <div class="option-card">
+                                    <span>Very useful</span>
+                                </div>
+                            </label>
+                            <label class="selection-option card-option">
+                                <input type="radio" name="priceForecastUseful" value="useful" required>
+                                <div class="option-card">
+                                    <span>Useful</span>
+                                </div>
+                            </label>
+                            <label class="selection-option card-option">
+                                <input type="radio" name="priceForecastUseful" value="somewhat-useful" required>
+                                <div class="option-card">
+                                    <span>Somewhat useful</span>
+                                </div>
+                            </label>
+                            <label class="selection-option card-option">
+                                <input type="radio" name="priceForecastUseful" value="not-useful" required>
+                                <div class="option-card">
+                                    <span>Not useful</span>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="question-section">
+                        <h3 id="budget-recommendation-question">6. Would you be interested in an app that recommends which vegetables to buy based on your budget and nutritional needs?</h3>
+                        <div class="selection-grid">
+                            <label class="selection-option card-option">
+                                <input type="radio" name="budgetRecommendation" value="very-interested" required>
+                                <div class="option-card">
+                                    <span>Very interested</span>
+                                </div>
+                            </label>
+                            <label class="selection-option card-option">
+                                <input type="radio" name="budgetRecommendation" value="interested" required>
+                                <div class="option-card">
+                                    <span>Interested</span>
+                                </div>
+                            </label>
+                            <label class="selection-option card-option">
+                                <input type="radio" name="budgetRecommendation" value="neutral" required>
+                                <div class="option-card">
+                                    <span>Neutral</span>
+                                </div>
+                            </label>
+                            <label class="selection-option card-option">
+                                <input type="radio" name="budgetRecommendation" value="not-interested" required>
+                                <div class="option-card">
+                                    <span>Not interested</span>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="question-section">
+                        <h3 id="recipe-suggestions-question">7. Would you use recipe suggestions based on seasonal or affordable vegetables?</h3>
+                        <div class="selection-grid">
+                            <label class="selection-option card-option">
+                                <input type="radio" name="recipeSuggestions" value="yes-definitely" required>
+                                <div class="option-card">
+                                    <span>Yes, definitely</span>
+                                </div>
+                            </label>
+                            <label class="selection-option card-option">
+                                <input type="radio" name="recipeSuggestions" value="probably" required>
+                                <div class="option-card">
+                                    <span>Probably</span>
+                                </div>
+                            </label>
+                            <label class="selection-option card-option">
+                                <input type="radio" name="recipeSuggestions" value="maybe" required>
+                                <div class="option-card">
+                                    <span>Maybe</span>
+                                </div>
+                            </label>
+                            <label class="selection-option card-option">
+                                <input type="radio" name="recipeSuggestions" value="no" required>
+                                <div class="option-card">
+                                    <span>No</span>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+                </fieldset>
+
+                <fieldset id="usage-context">
+                    <legend>Section 3</legend>
+                    
+                    <div class="question-section">
+                        <h3 id="smartphone-ownership-question">8. Do you own a smartphone or mobile device?</h3>
+                        <div class="selection-grid">
+                            <label class="selection-option card-option">
+                                <input type="radio" name="smartphoneOwnership" value="smartphone" required>
+                                <div class="option-card">
+                                    <span>Yes, Smartphone (Android or iPhone)</span>
+                                </div>
+                            </label>
+                            <label class="selection-option card-option">
+                                <input type="radio" name="smartphoneOwnership" value="basic-phone" required>
+                                <div class="option-card">
+                                    <span>Yes, Basic/Feature phone</span>
+                                </div>
+                            </label>
+                            <label class="selection-option card-option">
+                                <input type="radio" name="smartphoneOwnership" value="no-phone" required>
+                                <div class="option-card">
+                                    <span>No phone</span>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="question-section">
+                        <h3 id="app-comfort-question">9. How comfortable are you with using mobile apps or websites?</h3>
+                        <div class="selection-grid">
+                            <label class="selection-option card-option">
+                                <input type="radio" name="appComfort" value="very-comfortable" required>
+                                <div class="option-card">
+                                    <span>Very comfortable</span>
+                                </div>
+                            </label>
+                            <label class="selection-option card-option">
+                                <input type="radio" name="appComfort" value="comfortable" required>
+                                <div class="option-card">
+                                    <span>Comfortable</span>
+                                </div>
+                            </label>
+                            <label class="selection-option card-option">
+                                <input type="radio" name="appComfort" value="neutral" required>
+                                <div class="option-card">
+                                    <span>Neutral</span>
+                                </div>
+                            </label>
+                            <label class="selection-option card-option">
+                                <input type="radio" name="appComfort" value="uncomfortable" required>
+                                <div class="option-card">
+                                    <span>Uncomfortable</span>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+                </fieldset>
+
+                <fieldset id="decision-making">
+                    <legend>Section 4</legend>
+                    
+                    <div class="question-section">
+                        <h3 id="decision-factors-question">10. How do you typically decide which vegetables to buy or sell? (Choose top 2)</h3>
+                        <div class="selection-grid checkbox-grid">
+                            <label class="selection-option card-option checkbox-option">
+                                <input type="checkbox" name="decisionFactors" value="current-prices">
+                                <div class="option-card">
+                                    <span>Based on current prices</span>
+                                </div>
+                            </label>
+                            <label class="selection-option card-option checkbox-option">
+                                <input type="checkbox" name="decisionFactors" value="family-preferences">
+                                <div class="option-card">
+                                    <span>Family preferences / Customer demand</span>
+                                </div>
+                            </label>
+                            <label class="selection-option card-option checkbox-option">
+                                <input type="checkbox" name="decisionFactors" value="nutritional-value">
+                                <div class="option-card">
+                                    <span>Nutritional value</span>
+                                </div>
+                            </label>
+                            <label class="selection-option card-option checkbox-option">
+                                <input type="checkbox" name="decisionFactors" value="seasonal-availability">
+                                <div class="option-card">
+                                    <span>Seasonal availability</span>
+                                </div>
+                            </label>
+                            <label class="selection-option card-option checkbox-option">
+                                <input type="checkbox" name="decisionFactors" value="no-specific-plan">
+                                <div class="option-card">
+                                    <span>No specific plan</span>
+                                </div>
+                            </label>
+                        </div>
+                        <p id="decision-limit-message" class="error-message">You can select a maximum of 2 factors.</p>
+                    </div>
+
+                    <div class="question-section">
+                        <h3 id="forecast-useful-question">11. How far in advance would you find vegetable price forecasts most useful?</h3>
+                        <div class="selection-grid">
+                            <label class="selection-option card-option">
+                                <input type="radio" name="forecastUseful" value="1-2-days" required>
+                                <div class="option-card">
+                                    <span>1-2 days</span>
+                                </div>
+                            </label>
+                            <label class="selection-option card-option">
+                                <input type="radio" name="forecastUseful" value="3-7-days" required>
+                                <div class="option-card">
+                                    <span>3-7 days</span>
+                                </div>
+                            </label>
+                            <label class="selection-option card-option">
+                                <input type="radio" name="forecastUseful" value="1-2-weeks" required>
+                                <div class="option-card">
+                                    <span>1-2 weeks</span>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="question-section">
+                        <h3 id="motivation-factors-question">12. What would most motivate you to use an app that predicts vegetable prices and suggests recipes? (Choose top 2)</h3>
+                        <div class="selection-grid checkbox-grid">
+                            <label class="selection-option card-option checkbox-option">
+                                <input type="checkbox" name="motivationFactors" value="saving-money">
+                                <div class="option-card">
+                                    <span>Saving money</span>
+                                </div>
+                            </label>
+                            <label class="selection-option card-option checkbox-option">
+                                <input type="checkbox" name="motivationFactors" value="better-meal-planning">
+                                <div class="option-card">
+                                    <span>Better meal planning</span>
+                                </div>
+                            </label>
+                            <label class="selection-option card-option checkbox-option">
+                                <input type="checkbox" name="motivationFactors" value="nutritional-benefits">
+                                <div class="option-card">
+                                    <span>Nutritional benefits</span>
+                                </div>
+                            </label>
+                            <label class="selection-option card-option checkbox-option">
+                                <input type="checkbox" name="motivationFactors" value="time-savings">
+                                <div class="option-card">
+                                    <span>Time savings</span>
+                                </div>
+                            </label>
+                        </div>
+                        <p id="motivation-limit-message" class="error-message">You can select a maximum of 2 factors.</p>
+                    </div>
+
+                    <div class="question-section">
+                        <h3 id="app-likely-question">13. How likely would you be to use a free app that includes price forecasts, nutritional suggestions, and recipes?</h3>
+                        <div class="selection-grid">
+                            <label class="selection-option card-option">
+                                <input type="radio" name="appLikely" value="very-likely" required>
+                                <div class="option-card">
+                                    <span>Very likely</span>
+                                </div>
+                            </label>
+                            <label class="selection-option card-option">
+                                <input type="radio" name="appLikely" value="likely" required>
+                                <div class="option-card">
+                                    <span>Likely</span>
+                                </div>
+                            </label>
+                            <label class="selection-option card-option">
+                                <input type="radio" name="appLikely" value="neutral" required>
+                                <div class="option-card">
+                                    <span>Neutral</span>
+                                </div>
+                            </label>
+                            <label class="selection-option card-option">
+                                <input type="radio" name="appLikely" value="unlikely" required>
+                                <div class="option-card">
+                                    <span>Unlikely</span>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+                </fieldset>
+
+                <fieldset id="prototype-testing">
+                    <legend>Bonus Question</legend>
+                    
+                    <div class="question-section">
+                        <h3 id="prototype-interest-question">14. Would you be interested in testing a prototype or beta version of an app that predicts vegetable prices and suggests recipes?</h3>
+                        <div class="selection-grid">
+                            <label class="selection-option card-option">
+                                <input type="radio" name="prototypeInterest" value="yes" required>
+                                <div class="option-card">
+                                    <span>Yes</span>
+                                </div>
+                            </label>
+                            <label class="selection-option card-option">
+                                <input type="radio" name="prototypeInterest" value="maybe" required>
+                                <div class="option-card">
+                                    <span>Maybe</span>
+                                </div>
+                            </label>
+                            <label class="selection-option card-option">
+                                <input type="radio" name="prototypeInterest" value="no" required>
+                                <div class="option-card">
+                                    <span>No</span>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+                </fieldset>
+
+                <fieldset id="open-feedback">
+                    <legend>Do you have any other comments on the availability, price, or quality of vegetables in your area?</legend>
+                    <div class="text-feedback">
+                        <textarea name="feedback" id="feedback" rows="6" placeholder="Please share your thoughts..."></textarea>
+                    </div>
+                </fieldset>
+
+                <div class="navigation-buttons">
+                    <button type="button" id="prevButton4">Previous</button>
+                    <button type="button" id="nextButton4">Submit</button>
+                </div>
+            </div>
+
+            <!-- Page 5 (Previously Page 4) - Thank You Page -->
+            <div class="page" id="page5">
+                <div class="thank-you-container">
+                    <div class="thank-you-icon">✓</div>
+                    <h2>Thank You!</h2>
+                    <p>We sincerely appreciate you taking the time to complete our survey. Your valuable feedback helps us understand vegetable preferences and improve availability in your area.</p>
+                    <p>Your responses have been recorded and will contribute to our research.</p>
+                    <button type="button" id="restartButton">Take Survey Again</button>
+                </div>
+            </div>
+        </form>
+
+        <div id="results"></div>
+    </main>
+
+<footer class="interactive-footer">
+    <div class="footer-grid">
+        <div class="footer-item" data-veg="carrot">
+            <span class="veg-emoji">🥕</span>
+            <span class="veg-name">Carrot</span>
+        </div>
+        <div class="footer-item" data-veg="tomato">
+            <span class="veg-emoji">🍅</span>
+            <span class="veg-name">Tomato</span>
+        </div>
+        <div class="footer-item" data-veg="cucumber">
+            <span class="veg-emoji">🥒</span>
+            <span class="veg-name">Cucumber</span>
+        </div>
+        <div class="footer-copyright">
+            <p>&copy; 2025 The Veggie Survey</p>
+            <p>Planting seeds for better nutrition!</p>
+        </div>
+    </div>
+</footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
